@@ -1,0 +1,36 @@
+<form method="post" action="/api/transaction/" id = "add_investment">
+    <div class="new_investment">
+        <div class="form-group">
+            <label for="AssetClass" class="text-light">Asset Class:</label>
+            <select id="AssetClass" name="AssetClass">
+                <option value="Stocks">Stocks</option>
+                <option value="Mutual Fund">Mutual Fund</option>
+                <option value="Currency">Currency</option>
+                <option value="Index">Index</option>
+            </select>
+        </div>
+        <!-- implementing searching feature  -->
+        <div id="SymbolSearch" class="form-group listwarp">
+            <label for="Symbol" class="text-dark">Symbol </label>
+            <!-- <input type="hidden" name="id" value="" placeholder="Symbol"> -->
+            <input type="text" autocomplete="off" id = "SymbolInput" name="Symbol"placeholder="Symbol">
+        </div>
+        <div class="form-group">
+            <label for="Date" class="text-dark">Purchase date </label>
+            <input type="date"  id ="date" name="PurchaseDate" required>
+        </div>
+        <div class="form-group">
+            <label for="quantity" class="text-dark">Quantity</label>
+            <input type="number"  name="quantity" min="1" required>
+        </div>
+        <div class="form-group">
+            <label for="price" class="text-dark" >Purchase price </label>
+            <input id="price" type="text" name="PurchasePrice" required>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update" onclick= "SuccessAlert()">Save</button>
+        </div>
+
+    </div>
+</form>

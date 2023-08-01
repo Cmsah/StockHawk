@@ -1,0 +1,46 @@
+<% for(let i = 0; i < users.length;i++) {%>
+<tr>
+    <td><%=users[i].AssetClass%></td>
+    <td><%=users[i].Symbol%></td>
+    <td><%=users[i].quantity%></td>
+    <td><%=users[i].PurchasePrice*users[i].quantity%></td>
+    <td id="currentPrice" value = "<%-users[i].Symbol%>"></td>
+   
+    <td>
+        <!-- <a href="/update-investment" class="btn border-shadow update">
+            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+        </a> -->
+       
+        <a href="/api/transaction/delete/<%-users[i].id%>" id = "delbtn" onclick="delrow(this)" value = "<%-users[i]._id%>" class="btn border-shadow delete">
+            <span class="text-gradient"><i class="fas fa-times"></i></span>
+        </a>
+    </td>
+        <!-- <script>
+            // userid = "<%-users[i].id %>"
+            function deleteRow(row) {
+            //alert(row);
+            // var d = row.parentNode.parentNode.rowIndex;
+            document.getElementById('dsTable').deleteRow(row);
+        }
+            function delrow(e){
+                
+                const url = 'http://localhost:3500/api/transaction/<%-users[i].id %>';
+                console.log(url);
+
+                fetch(url, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    console.log('fetch response:',data);
+                    return res.render('index',{users:data});
+                })
+                console.log(e);
+                deleteRow(e.target.parentNode.parentNode.rowIndex);
+
+            }
+            console.log("<%-users[i].id %>");
+        </script> -->
+</tr>
+<% } %>
